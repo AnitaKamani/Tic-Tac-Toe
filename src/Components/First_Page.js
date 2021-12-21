@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./Components.css";
 import Game from "./Game";
+import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -66,16 +67,18 @@ export default function First_Page() {
                   Start
                 </Button>
 
-                <Container
-                  className="footer"
+                <Typography
+                  // component="div"
+                  // className="footer"
                   justifyContent="center"
-                  alignItems="center"
-                  text="center"
                   style={{ width: 300 }}
-                  sx={{ paddingTop: 3 }}
+                  sx={{ paddingTop: 3, textAlign: "justify", m: 1 }}
                 >
-                  <p>Tic Tac Toe Project by Fatemeh Kamani</p>
-                </Container>
+                  Tic Tac Toe Rules:
+                  <br/>
+                  Try to defeat your opponent by creating a
+                  three-piece line, whoever does it first wins this game.
+                </Typography>
               </Stack>
             </Box>
           </Container>

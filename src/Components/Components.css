@@ -7,14 +7,6 @@
   justify-content: center;
   display: flex;
 }
-
-.footer {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  text-align: center;
-}
-
 .game ol,
 .game ul {
   padding-left: 30px;
