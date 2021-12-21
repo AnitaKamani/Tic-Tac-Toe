@@ -37,6 +37,9 @@ export default function Board(props) {
           fontSize: 34,
           color: buttoncolor(i, winner)[1],
           bgcolor: buttoncolor(i, winner)[0],
+          "&:hover": {
+            background: buttoncolor(i, winner)[2],
+          },
         }}
       >
         {squares[i]}
@@ -135,9 +138,17 @@ function calculateNextValue(squares, props) {
 function buttoncolor(i, winner) {
   if (winner) {
     if (i === winner[1][0] || i === winner[1][1] || i === winner[1][2])
-      return [theme.palette.primary.main, theme.palette.background.paper];
+      return [
+        theme.palette.primary.main,
+        theme.palette.background.paper,
+        theme.palette.primary.main,
+      ];
   }
-  return [theme.palette.background.paper, theme.palette.primary.main];
+  return [
+    theme.palette.background.paper,
+    theme.palette.primary.main,
+    theme.palette.success.contrastText,
+  ];
 }
 
 function calculateWinner(squares, props) {

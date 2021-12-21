@@ -21,6 +21,7 @@ const theme = createTheme({
     },
     success: {
       main: "#308530",
+      contrastText: '#f7f8f9',
     },
   },
 });
