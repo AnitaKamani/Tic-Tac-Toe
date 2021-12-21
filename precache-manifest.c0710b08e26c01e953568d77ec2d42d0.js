@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Tic-Tac-Toe/static/js/runtime~main.3c69a391.js"
   },
   {
-    "revision": "d562ffe4dcf0a04575c8f1f3c4bb6e18",
+    "revision": "80e519d3e7742b6a7811a9a419f6798f",
     "url": "/Tic-Tac-Toe/index.html"
   }
 ];
