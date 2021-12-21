@@ -1,12 +1,10 @@
 import { createTheme } from "@mui/material/styles";
-
 const theme = createTheme({
   palette: {
     type: "light",
     primary: {
       main: "#2A3C4F",
     },
-
     secondary: {
       main: "#121212",
     },
@@ -22,11 +20,11 @@ const theme = createTheme({
     },
     success: {
       main: "#308530",
-      contrastText: '#f7f7f8',
+      contrastText: "#f7f7f8",
     },
   },
   typography: {
-    fontFamily: 'sans-serif',
+    fontFamily: "sans-serif",
     fontSize: 16,
   },
 });
