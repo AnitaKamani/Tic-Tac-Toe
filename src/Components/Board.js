@@ -3,6 +3,7 @@ import "./Components.css";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import theme from "./Theme.js";
 
@@ -72,7 +73,7 @@ export default function Board(props) {
         alignItems="center"
       >
         <Grid className="status" justifyContent="center" alignItems="center">
-          {status}
+          <Typography variant="h5">{status}</Typography>
         </Grid>
         <br />
         <br />
