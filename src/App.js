@@ -5,7 +5,7 @@ import theme1 from "./Components/Theme.js";
 import { ThemeProvider } from "@mui/material/styles";
 function App() {
   return (
-    <div className="App" justifyContent="center" alignItems="center">
+    <div className="Game" justifyContent="center" alignItems="center">
       <ThemeProvider theme={theme1}>
         <First_Page />
       </ThemeProvider>

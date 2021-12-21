@@ -1,42 +1,86 @@
 import * as React from "react";
 import "./Components.css";
 import Game from "./Game";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import theme1 from "./Theme.js";
+import theme from "./Theme.js";
 import { ThemeProvider } from "@mui/material/styles";
-function First_Page() {
+import { useState } from "react";
+
+export default function First_Page() {
+  const [clicked, setclicked] = useState(false);
+  const UpdateNames = () => {
+    setclicked(true);
+  };
+  const TextChangeFirstPlayer = (e) => {
+    setFirstPlayer(e.target.value);
+  };
+  const TextChangeSecondPlayer = (e) => {
+    setSecondPlayer(e.target.value);
+  };
+  const [FirstPlayer, setFirstPlayer] = useState("x");
+  const [SecondPlayer, setSecondPlayer] = useState("o");
+
   return (
-    <div className="game" justifyContent="center" alignItems="center">
-      <div className="game-board" justifyContent="center" alignItems="center">
-        <ThemeProvider theme={theme1}>
-          <Container justifyContent="center" alignItems="center">
+    <container calss="Game" justifyContent="center" alignItems="center">
+      <ThemeProvider theme={theme}>
+        {clicked === true && (
+          <Game FirstPlayer={FirstPlayer} SecondPlayer={SecondPlayer} />
+        )}
+        {clicked === false && (
+          <Container
+            className="game"
+            justifyContent="center"
+            alignItems="center"
+            style={{ width: 300 }}
+          >
             <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
+              className="game"
+              style={{ width: 200 }}
+              sx={{ flexGrow: 1 }}
+              justifyContent="center"
+              alignItems="center"
             >
-              <TextField
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-              />
-              <TextField id="filled-basic" label="Filled" variant="filled" />
-              <TextField
-                id="standard-basic"
-                label="Standard"
-                variant="standard"
-              />
+              <Stack direction="column" spacing={5}>
+                <TextField
+                  id="FirstPlayer"
+                  onChange={TextChangeFirstPlayer}
+                  label="First Player"
+                />
+                <TextField
+                  id="SecondPlayer"
+                  onChange={TextChangeSecondPlayer}
+                  label="Second Player"
+                />
+                <Button
+                  color="primary"
+                  variant="contained"
+                  style={{ width: 100 }}
+                  justifyContent="center"
+                  alignItems="center"
+                  onClick={() => UpdateNames()}
+                >
+                  Start
+                </Button>
+
+                <Container
+                  className="footer"
+                  justifyContent="center"
+                  alignItems="center"
+                  text="center"
+                  style={{ width: 300 }}
+                  sx={{ paddingTop: 3 }}
+                >
+                  <p>Tic Tac Toe Project by Fatemeh Kamani</p>
+                </Container>
+              </Stack>
             </Box>
           </Container>
-        </ThemeProvider>
-      </div>
-    </div>
+        )}
+      </ThemeProvider>
+    </container>
   );
 }
-
-export default First_Page;

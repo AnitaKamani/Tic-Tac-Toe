@@ -3,12 +3,13 @@ import "./Components.css";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import theme from "./Theme.js";
 
-function Board() {
+export default function Board(props) {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
-  const nextValue = calculateNextValue(squares);
-  const winner = calculateWinner(squares);
+  const nextValue = calculateNextValue(squares, props);
+  const winner = calculateWinner(squares, props);
 
   const status = calculateStatus(winner, squares, nextValue);
 
@@ -17,7 +18,7 @@ function Board() {
       return;
     }
     const squaresCopy = [...squares];
-    squaresCopy[square] = nextValue;
+    squaresCopy[square] = nextValue[0];
     setSquares(squaresCopy);
   }
 
@@ -51,12 +52,8 @@ function Board() {
       </React.Fragment>
     );
   }
-
-  function restart_button() {
-    if (winner || status === "The game is drawn :(") {
-      return "New Game";
-    }
-    return "Restart";
+  function newgame() {
+    window.location.reload();
   }
   return (
     <Box
@@ -104,31 +101,35 @@ function Board() {
         </Grid>
         <br />
         <br />
-        <Grid
-          className="restart"
-          item
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Button color="primary" variant="contained" onClick={restart}>
-            {restart_button()}
-          </Button>
+
+        <Grid className="restart" justifyContent="center" alignItems="center">
+          <Stack direction="column" spacing={3}>
+            <Button color="primary" variant="contained" onClick={restart}>
+              Restart
+            </Button>
+
+            <Button color="primary" variant="contained" onClick={newgame}>
+              New Game
+            </Button>
+          </Stack>
         </Grid>
       </Grid>
     </Box>
   );
 }
 
-function calculateStatus(winner, squares, nextValue, End) {
+function calculateStatus(winner, squares, nextValue, End, NextPlayer) {
   return winner
     ? `Winner: ${winner[0]}`
     : squares.every(Boolean)
     ? `The game is drawn :(`
-    : `Next player: ${nextValue}`;
+    : `Next player: ${nextValue[1]}`;
 }
 
-function calculateNextValue(squares) {
-  return squares.filter(Boolean).length % 2 === 0 ? "X" : "O";
+function calculateNextValue(squares, props) {
+  return squares.filter(Boolean).length % 2 === 0
+    ? ["X", props.FirstPlayer]
+    : ["O", props.SecondPlayer];
 }
 
 function buttoncolor(i, winner) {
@@ -139,7 +140,7 @@ function buttoncolor(i, winner) {
   return [theme.palette.background.paper, theme.palette.primary.main];
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares, props) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -153,9 +154,11 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return [squares[a], [a, b, c]];
+      return [
+        squares[a] === "X" ? props.FirstPlayer : props.SecondPlayer,
+        [a, b, c],
+      ];
     }
   }
   return null;
 }
-export default Board;

@@ -2,10 +2,17 @@
   font: 22px "Century Gothic", Futura, sans-serif;
   margin: 20px;
   min-height: 260px;
-  margin-top: 50px;
+  margin-top: 70px;
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+.footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
 }
 
 .game ol,

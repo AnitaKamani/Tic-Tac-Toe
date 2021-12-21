@@ -3,16 +3,17 @@ import "./Components.css";
 import Board from "./Board";
 import Container from "@mui/material/Container";
 
-function Game() {
+export default function Game(props) {
   return (
     <div className="game" justifyContent="center" alignItems="center">
       <div className="game-board" justifyContent="center" alignItems="center">
         <Container justifyContent="center" alignItems="center">
-          <Board />
+          <Board
+            FirstPlayer={props.FirstPlayer}
+            SecondPlayer={props.SecondPlayer}
+          />
         </Container>
       </div>
     </div>
   );
 }
-
-export default Game;
