@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Tic Tac Toe Game
 
+## [Hosted project using github-pages](https://anitakamani.github.io/Tic-Tac-Toe/)
+<br></br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## Node installation
+For running this project on your own system you need to follow these installation instructions:\
+please download node using [this link](https://nodejs.org/de/download/)
 
 ## Available Scripts
 
