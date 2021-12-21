@@ -22,8 +22,8 @@ export default function First_Page() {
   const TextChangeSecondPlayer = (e) => {
     setSecondPlayer(e.target.value);
   };
-  const [FirstPlayer, setFirstPlayer] = useState("x");
-  const [SecondPlayer, setSecondPlayer] = useState("o");
+  const [FirstPlayer, setFirstPlayer] = useState("X");
+  const [SecondPlayer, setSecondPlayer] = useState("O");
 
   return (
     <container calss="Game" justifyContent="center" alignItems="center">
