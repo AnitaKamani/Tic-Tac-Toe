@@ -19,7 +19,7 @@ if you don't have it, use this command:
 ##### `npm install -g npm`
 
 ## Running the APP
-now clone this git project and extract it\
+now clone this git project using [this link](https://github.com/AnitaKamani/Tic-Tac-Toe.git) and extract it\
 go to the Tic-Tac-Toe folder and run this command:
 ##### `npm install`
 
